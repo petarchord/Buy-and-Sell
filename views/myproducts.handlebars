@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Welcome {{username}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+   <!--   <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">My Products</a>
+    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
+      {{# each myCourses}}
+    <a class="dropdown-item" href="{{this.link}}">{{this.name}}</a>
+      {{/each}}
+    </div>
+   
+  </li> -->
+    <li class="nav-item ">
+        <a class="nav-link" href="/myproducts">My Products <span class="sr-only">(current)</span></a>
+    </li>
+
+
+    <li class="nav-item ">
+        <a class="nav-link" href="/addproduct">Add New Product <span class="sr-only">(current)</span></a>
+    </li>
+
+
+    <li class="nav-item ">
+        <a class="nav-link" href="/products">Products<span class="sr-only">(current)</span></a>
+      </li>
+   
+      <li class="nav-item">
+        <a class="nav-link" href="/home/about">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <a href="/" > Log out </a>
+  </div>
+</nav>
+
+
+
+{{#each products}}
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">{{this.name}}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">{{this.type}}</h6>
+    <p class="card-text">{{this.descr}}</p>
+    <p class="card-text">Owner:<a href="/userinfo/{{this.userid}}"> {{this.userid}} </a></p>
+    <p class="card-text">Contact : {{this.phone}}</p>
+    <p class="card-text">Price : {{this.price}}€</p>
+    <a href="/myproducts/delete/{{this.id}}?_method=DELETE" class="card-link">Delete</a>
+    <a href="/editproduct/{{this.id}}" class="card-link">Edit</a>
+  </div>
+</div> 
+{{/each}}
+
+
+
